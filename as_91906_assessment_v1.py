@@ -50,11 +50,6 @@ def options():
          
         selection = easygui.buttonbox(msg, title, choices)
 
-
-        # Calls a specific function, based on the user's selection from
-        # the menu.
-        # For example, if user clicks on "Delete" button, it will be
-        # get_input = options[leave()]
         get_input = options[selection]()
 
 def search():
