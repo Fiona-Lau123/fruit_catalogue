@@ -1,27 +1,22 @@
 import easygui
 
 
-fruit = {"Strawberry":
-    {"Potassium": 153,
-     "Phosphorus": 24,
-     "Sugar": 5,
-     "Calories": 33},
-     "Watermelon":
-     {"Potassium": 112,
-     "Phosphorus": 11,
-     "Sugar": 6,
-     "Calories": 30},
-     "Grape":
-     {"Potassium": 191,
-     "Phosphorus": 20,
-     "Sugar": 16,
-     "Calories": 69},
-     "Feijoa":
-     {"Potassium": 172,
-     "Phosphorus": 19,
-     "Sugar": 8,
-     "Calories": 55},
-}
+# fruit = {"Strawberry":
+#     {"Potassium": 153,
+#      "Phosphorus": 24,
+#      "Sugar": 5,
+#      "Calories": 33},
+#      "Watermelon":
+#      {"Potassium": 112,
+#      "Phosphorus": 11,
+#      "Sugar": 6,
+#      "Calories": 30},
+#      "Feijoa":
+#      {"Potassium": 172,
+#      "Phosphorus": 19,
+#      "Sugar": 8,
+#      "Calories": 55},
+# }
 
 
 def options():
@@ -54,28 +49,47 @@ def options():
 
 def search():
     title = "Searching for a fruit"
-    msg = "What fruit do you want to seach for?"
+    msg = "What fruit do you want to search for?"
     fruit_searched = easygui.enterbox(msg, title)
 
-
+    # if fruit_searched.isalpha:
+    #      check_exist
+    
+    # else:
+    fruit_searched = verify(fruit_searched)
 
 
 def display_fruits():
 
-    for fruit_id, fruit_value in fruit.items():
-        print("\nFruit name: " + fruit_id)
+    f = open("fruit.txt")
+
+    for fruit in f:
+         print(fruit)
+
+    f.close()
         
-        for fruit_key in fruit_value:
-            print(fruit_key + ":", fruit_value[fruit_key])
+        #  for fruit_key in fruit_value:
+        #      print(fruit_key + ":", fruit_value[fruit_key])
     # f = open("fruit").read()            
     # print(f)
+
+def verify(fruit_searched):
+
+    while fruit_searched == "":
+        msg = "Please enter a fruit name"
+        title = "Fruit name error"
+        new_searched = easygui.enterbox(msg, title)
+
+        # if new_searched =! 
+
+# def existence():
+
 
 
 def exit_fully():
     msg = "Are you sure you want to exit?"
     title = "Exiting?"
     exit = easygui.ynbox(msg,title)
-
 
     if exit:
         return "N"
