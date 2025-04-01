@@ -1,16 +1,8 @@
+STRAWBERRY, 153, 24, 5, 33
+WATERMELON, 112, 11, 6, 30
+FEIJOA, 172, 19, 8, 55
 
-Strawberry
-Potassium: 153
-Phosphorus: 24
-Sugar: 5
-Calories: 33
-Watermelon
-Potassium: 112
-Phosphorus: 11
-Sugar: 6
-Calories: 30
-Feijoa
-Potassium: 172
-Phosphorus: 19
-Sugar: 8
-Calories: 55
+
+
+
+
