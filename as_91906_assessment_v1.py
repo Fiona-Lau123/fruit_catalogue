@@ -51,12 +51,15 @@ def add_fruit():
     msg = "What fruit do you want to add?"
     added_fruit = easygui.enterbox(msg, title)
 
+    if added_fruit == None:
+        added_fruit = cancel()
+        
 
-    if added_fruit == "":
+    while added_fruit == "" or added_fruit == 0 or added_fruit.isalpha() == False:
         added_fruit = verify(added_fruit)
    
     added_fruit = added_fruit.upper()
-    print(added_fruit)
+    
     # if added_fruit == None:
     #     added_fruit = cancel()
 
@@ -107,6 +110,8 @@ def potassium_value_check():
     title = "Add value"
     potassium_value = easygui.enterbox(msg, title)
 
+    potassium_value = empty_value(potassium_value)
+
     if potassium_value == None:
         added_fruit = cancel()
         print(potassium_value)
@@ -114,33 +119,46 @@ def potassium_value_check():
 
 
     elif potassium_value.isdigit() == True or potassium_value != "":
-        while potassium_value == "" or int(potassium_value) < c.MIN_POTASSIUM or int(potassium_value) > c.MAX_POTASSIUM:
+        while potassium_value == "" or potassium_value.isdigit() == False or int(potassium_value) < c.MIN_POTASSIUM or int(potassium_value) > c.MAX_POTASSIUM:
             msg = "Value entered for potassium needs to be in between " + str(c.MIN_POTASSIUM) + " to " + str(c.MAX_POTASSIUM)
             title = "Value Error"
             new_value = easygui.enterbox(msg, title)
-
-            if int(new_value) >= c.MIN_POTASSIUM and int(new_value) <= c.MAX_POTASSIUM:
-                print(new_value)
-                return(new_value)
-    print(potassium_value)
+            
+                
+            if potassium_value == "":
+                empty_value(potassium_value)
+            else:
+                return(potassium_value)
+        return(potassium_value)
     return(potassium_value)
-           
+
+
+
 def phosphorus_value_check():
     msg = "Add a phosphorus(mg) value"
     title = "Add value"
     phosphorus_value = easygui.enterbox(msg, title)
 
 
-    if phosphorus_value.isdigit() == True or phosphorus_value != "":
-        while phosphorus_value == "" or int(phosphorus_value) < c.MIN_PHOSPHORUS or int(phosphorus_value) > c.MAX_PHOSPHORUS:
-            msg = "Value entered for phosphorus(mg) needs to be in between " + str(c.MIN_PHOSPHORUS) + " to " + str(c.MAX_PHOSPHORUS)
+    phosphorus_value = empty_value(phosphorus_value)
+
+    if phosphorus_value == None:
+        added_fruit = cancel()
+        print(phosphorus_value)
+        print(added_fruit)
+
+
+    elif phosphorus_value.isdigit() == True or phosphorus_value != "":
+        while phosphorus_value == "" or phosphorus_value.isdigit() == False or int(phosphorus_value) < c.MIN_PHOSPHORUS or int(phosphorus_value) > c.MAX_PHOSPHORUS:
+            msg = "Value entered for phosphorus needs to be in between " + str(c.MIN_PHOSPHORUS) + " to " + str(c.MAX_PHOSPHORUS)
             title = "Value Error"
-            new_value = easygui.enterbox(msg, title)
-
-
-            if int(new_value) >= c.MIN_PHOSPHORUS and int(new_value) <= c.MAX_PHOSPHORUS:
-                print(new_value)
-                return(new_value)
+            phosphorus_value = easygui.enterbox(msg, title)
+                
+            if phosphorus_value == "":
+                empty_value(phosphorus_value)
+            else:
+                return(phosphorus_value)
+        return(phosphorus_value)
     return(phosphorus_value)
 
 
@@ -150,48 +168,75 @@ def sugar_value_check():
     sugar_value = easygui.enterbox(msg, title)
 
 
-    if sugar_value.isdigit() == True or sugar_value != "":
-        while sugar_value == "" or int(sugar_value) < c.MIN_SUGAR or int(sugar_value) > c.MAX_SUGAR:
-            msg = "Value entered for sugar(g) needs to be in between " + str(c.MIN_SUGAR) + " to " + str(c.MAX_SUGAR)
+    sugar_value = empty_value(sugar_value)
+
+    if sugar_value == None:
+        added_fruit = cancel()
+        print(sugar_value)
+        print(added_fruit)
+
+
+    elif sugar_value.isdigit() == True or sugar_value != "":
+        while sugar_value == "" or sugar_value.isdigit() == False or int(sugar_value) < c.MIN_SUGAR or int(sugar_value) > c.MAX_SUGAR:
+            msg = "Value entered for sugar needs to be in between " + str(c.MIN_SUGAR) + " to " + str(c.MAX_SUGAR)
             title = "Value Error"
-            new_value = easygui.enterbox(msg, title)
-
-
-
-
-            if int(new_value) >= c.MIN_SUGAR and int(new_value) <= c.MAX_SUGAR:
-                print(new_value)
-                return(new_value)
-           
+            sugar_value = easygui.enterbox(msg, title)
+                
+            if sugar_value == "":
+                empty_value(sugar_value)
+            else:
+                return(sugar_value)
+        return(sugar_value)
     return(sugar_value)
 
-
 def calories_value_check():
-    msg = "Add a phosphorus(mg) value"
+    msg = "Add a calories(kcal) value"
     title = "Add value"
     calories_value = easygui.enterbox(msg, title)
 
 
-    if calories_value.isdigit() == True or calories_value != "":
-        while calories_value == "" or int(calories_value) < c.MIN_CALORIES or int(calories_value) > c.MAX_CALORIES:
-            msg = "Value entered for calories(kcal) needs to be in between " + str(c.MIN_CALORIES) + " to " + str(c.MAX_CALORIES)
+    calories_value = empty_value(calories_value)
+
+    if calories_value == None:
+        added_fruit = cancel()
+        print(calories_value)
+        print(added_fruit)
+
+
+    elif calories_value.isdigit() == True or calories_value != "":
+        while calories_value == "" or calories_value.isdigit() == False or int(calories_value) < c.MIN_CALORIES or int(calories_value) > c.MAX_CALORIES:
+            msg = "Value entered for calories needs to be in between " + str(c.MIN_CALORIES) + " to " + str(c.MAX_CALORIES)
             title = "Value Error"
-            new_value = easygui.enterbox(msg, title)
-
-
-            if int(new_value) >= c.MIN_CALORIES and int(new_value) <= c.MAX_CALORIES:
-                print(new_value)
-                return(new_value)
-           
+            calories_value = easygui.enterbox(msg, title)
+                
+            if calories_value == "":
+                empty_value(calories_value)
+            else:
+                return(calories_value)
+        return(calories_value)
     return(calories_value)
+
+def empty_value(value):
+    while value == "":
+        msg = "Please add a value"
+        title = "No value"
+        value = easygui.enterbox(msg, title)
+
+    return value
 
 def search():
     title = "Searching for a fruit"
     msg = "What fruit do you want to search for?"
-    fruit_searched = easygui.enterbox(msg, title).upper()
+    fruit_searched = easygui.enterbox(msg, title)
 
-    if fruit_searched == "":
+    if fruit_searched == None :
+        fruit_searched = cancel()
+
+
+    while fruit_searched == "" or fruit_searched == 0 or fruit_searched.isalpha() == False:
         fruit_searched = verify(fruit_searched)
+
+    
    
     fruit_searched = fruit_searched.upper()
     print(fruit_searched)
@@ -221,16 +266,16 @@ def display_fruits():
 
 def verify(fruit_name):
 
-    while fruit_name == "" or fruit_name.isalpha() == False:
+    while fruit_name == "" or str(fruit_name).isalpha() == False or fruit_name == None:
         msg = "Please enter a fruit name"
         title = "Fruit name error"
         new_searched = easygui.enterbox(msg, title)
-       
-        if new_searched.isalpha():
+
+        if new_searched == None:
+            new_searched = cancel()
+
+        elif new_searched.isalpha():
             return new_searched
-
-
-        # if new_searched =!
 
 
 def existence(fruit_check):
@@ -291,8 +336,16 @@ def make_changes(fruit_name, details):
 def delete():
     msg = "What fruit would you like to delete?"
     title = "Delete fruit"
-    delete_fruit = easygui.enterbox(msg, title).upper()
+    delete_fruit = easygui.enterbox(msg, title)
 
+    if delete_fruit == None :
+        delete_fruit = cancel()
+
+
+    while delete_fruit == "" or delete_fruit == 0 or delete_fruit.isalpha() == False:
+        delete_fruit = verify(delete_fruit)
+
+    delete_fruit = delete_fruit.upper()
 
     check_delete = existence(delete_fruit)
     print(check_delete)
@@ -300,7 +353,7 @@ def delete():
 
 
     if check_delete in fruits.keys():
-        msg = "Are you sure you want to delete " + check_delete
+        msg = "ARE YOU SURE YOU WANT TO DELETE " + check_delete
         title = "confirm delete"
         delete = easygui.ynbox(msg, title)
 
